@@ -83,4 +83,5 @@
   <include file="dbchangelogs/changelog-4.16.0-add-holiday-replacement.xml"/>
   <include file="dbchangelogs/changelog-4.19.0-add-special-leave.xml"/>
   <include file="dbchangelogs/changelog-4.19.0-extract-workingtime-settings.xml"/>
+  <include file="dbchangelogs/changelog-4.19.0-extract-time-settings.xml"/>
 </databaseChangeLog>
