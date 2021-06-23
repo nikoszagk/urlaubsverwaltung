@@ -85,4 +85,5 @@
   <include file="dbchangelogs/changelog-4.19.0-extract-workingtime-settings.xml"/>
   <include file="dbchangelogs/changelog-4.19.0-extract-time-settings.xml"/>
   <include file="dbchangelogs/changelog-4.19.0-extract-sicknote-settings.xml"/>
+  <include file="dbchangelogs/changelog-4.19.0-extract-overtime-settings.xml"/>
 </databaseChangeLog>
