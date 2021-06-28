@@ -87,4 +87,5 @@
   <include file="dbchangelogs/changelog-4.19.0-extract-sicknote-settings.xml"/>
   <include file="dbchangelogs/changelog-4.19.0-extract-overtime-settings.xml"/>
   <include file="dbchangelogs/changelog-4.19.0-extract-account-settings.xml"/>
+  <include file="dbchangelogs/changelog-4.19.0-extract-application-settings.xml"/>
 </databaseChangeLog>
