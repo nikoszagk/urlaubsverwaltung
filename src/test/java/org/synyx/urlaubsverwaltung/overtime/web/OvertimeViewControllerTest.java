@@ -15,6 +15,7 @@ import org.synyx.urlaubsverwaltung.overtime.OvertimeComment;
 import org.synyx.urlaubsverwaltung.overtime.OvertimeService;
 import org.synyx.urlaubsverwaltung.person.Person;
 import org.synyx.urlaubsverwaltung.person.PersonService;
+import org.synyx.urlaubsverwaltung.settings.SettingsService;
 
 import java.time.Clock;
 import java.time.Duration;
@@ -55,12 +56,14 @@ class OvertimeViewControllerTest {
     private OvertimeFormValidator validator;
     @Mock
     private DepartmentService departmentService;
+    @Mock
+    private SettingsService settingsService;
 
     private final Clock clock = Clock.systemUTC();
 
     @BeforeEach
     void setUp() {
-        sut = new OvertimeViewController(overtimeService, personService, validator, departmentService, clock);
+        sut = new OvertimeViewController(overtimeService, personService, validator, departmentService, settingsService, clock);
     }
 
     @Test
