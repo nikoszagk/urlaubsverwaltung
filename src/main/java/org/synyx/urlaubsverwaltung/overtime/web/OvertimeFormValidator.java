@@ -54,9 +54,9 @@ public class OvertimeFormValidator implements Validator {
     public void validate(Object target, Errors errors) {
 
         final OvertimeForm overtimeForm = (OvertimeForm) target;
-        final OvertimeSettings settings = settingsService.getSettings().getOvertimeSettings();
+        final OvertimeSettings overtimeSettings = settingsService.getSettings().getOvertimeSettings();
 
-        if (!settings.isOvertimeActive()) {
+        if (!overtimeSettings.isOvertimeActive()) {
             errors.reject(ERROR_OVERTIME_DEACTIVATED);
 
             // if overtime management is deactivated, no need to execute further validation
@@ -64,8 +64,8 @@ public class OvertimeFormValidator implements Validator {
         }
 
         validatePeriod(overtimeForm, errors);
-        validateNumberOfHours(settings, overtimeForm, errors);
-        validateMaximumOvertimeNotReached(settings, overtimeForm, errors);
+        validateNumberOfHours(overtimeSettings, overtimeForm, errors);
+        validateMaximumOvertimeNotReached(overtimeSettings, overtimeForm, errors);
         validateComment(overtimeForm, errors);
     }
 
@@ -106,13 +106,13 @@ public class OvertimeFormValidator implements Validator {
     }
 
 
-    private void validateMaximumOvertimeNotReached(OvertimeSettings settings, OvertimeForm overtimeForm, Errors errors) {
+    private void validateMaximumOvertimeNotReached(OvertimeSettings overtimeSettings, OvertimeForm overtimeForm, Errors errors) {
 
         final Duration numberOfHours = overtimeForm.getDuration();
 
         if (numberOfHours != null) {
-            final Duration maximumOvertime = Duration.ofHours(settings.getMaximumOvertime());
-            final Duration minimumOvertime = Duration.ofHours(settings.getMinimumOvertime());
+            final Duration maximumOvertime = Duration.ofHours(overtimeSettings.getMaximumOvertime());
+            final Duration minimumOvertime = Duration.ofHours(overtimeSettings.getMinimumOvertime());
 
             if (maximumOvertime.isZero()) {
                 errors.reject(ERROR_OVERTIME_DEACTIVATED);
